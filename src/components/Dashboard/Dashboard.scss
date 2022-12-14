@@ -1,0 +1,80 @@
+.dashboard-container {
+  display: flex;
+
+  height: 100vh;
+
+  padding: 50px;
+
+  .current-city-container {
+    width: 80%;
+
+    background: red;
+
+    .current-city {
+      display: flex;
+      align-items: center;
+
+      height: 50%;
+
+      background-position: center;
+      background-size: cover;
+
+      border-radius: 16px;
+
+      .current-city-left-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+
+        width: 140px;
+        height: 60%;
+
+        margin: 0;
+        margin-left: -50px;
+
+        color: #fff;
+        background: linear-gradient(#567be8, #6da7f1);
+
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+
+        .current-city-left-container-temperature {
+          margin: 0;
+
+          font-size: 50px;
+        }
+
+        .current-city-left-container-weather {
+          width: 84px;
+        }
+      }
+
+      .current-city-content {
+        height: 50%;
+
+        margin-left: 54px;
+
+        color: #01175f;
+
+        .current-city-title {
+          margin: 0;
+          margin-bottom: 8px;
+
+          font-size: 32px;
+        }
+
+        .current-city-date {
+          margin: 0;
+          margin-bottom: 20px;
+
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .right-container {
+    width: 20%;
+  }
+}
