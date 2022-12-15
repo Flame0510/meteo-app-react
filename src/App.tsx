@@ -5,9 +5,11 @@ import Dashboard from "./components/Dashboard/Dashboard";
 
 import { useDispatch } from "react-redux";
 
-import { setCities } from "./reducers/citiesReducer";
+import { setCities, addCity } from "./reducers/citiesReducer";
 
 import { env } from "./environments";
+
+import "./assets/fonts/poppins/stylesheet.css";
 
 function App() {
   const { apiKey } = env;

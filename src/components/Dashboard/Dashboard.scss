@@ -1,25 +1,30 @@
+$title-color: #01175f;
+$border-radius: 16px;
+
 .dashboard-container {
   display: flex;
 
   height: 100vh;
 
+  background: #d8d8d8;
+
   padding: 50px;
 
   .current-city-container {
-    width: 80%;
+    width: 75%;
 
-    background: red;
+    background: rgba(100, 100, 100, 0.2);
 
     .current-city {
       display: flex;
       align-items: center;
 
-      height: 50%;
+      height: calc(50% - 30px);
 
       background-position: center;
       background-size: cover;
 
-      border-radius: 16px;
+      border-radius: $border-radius;
 
       .current-city-left-container {
         display: flex;
@@ -36,8 +41,8 @@
         color: #fff;
         background: linear-gradient(#567be8, #6da7f1);
 
-        border-top-right-radius: 16px;
-        border-bottom-right-radius: 16px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
 
         .current-city-left-container-temperature {
           margin: 0;
@@ -55,12 +60,13 @@
 
         margin-left: 54px;
 
-        color: #01175f;
+        color: $title-color;
 
         .current-city-title {
           margin: 0;
           margin-bottom: 8px;
 
+          font-family: "Poppins-SemiBold";
           font-size: 32px;
         }
 
@@ -68,13 +74,91 @@
           margin: 0;
           margin-bottom: 20px;
 
+          font-family: "Poppins-Medium";
           font-size: 20px;
+        }
+
+        .current-city-weather {
+          margin: 0;
+
+          font-family: "Poppins-Light";
+          font-size: 20px;
+        }
+      }
+    }
+
+    .current-city-bottom-container {
+      display: flex;
+      justify-content: space-between;
+
+      height: 50%;
+
+      margin-top: 30px;
+
+      .current-city-today-container {
+        width: 30%;
+
+        .current-city-today-title {
+          margin: 20px 0 20px 20px;
+
+          color: $title-color;
+
+          font-size: 28px;
+          font-family: "Poppins-SemiBold";
+        }
+
+        .current-city-today-content {
+          height: calc(100% - 82px);
+
+          background: linear-gradient(#5f8dec, #699fef);
+
+          border-radius: $border-radius;
+        }
+      }
+
+      .current-city-week-month-container {
+        width: 70%;
+
+        margin-left: 50px;
+
+        .current-city-week-month-title-container {
+          display: inline-block;
+
+          background: #fff;
+
+          border-top-left-radius: $border-radius;
+          border-top-right-radius: $border-radius;
+
+          .current-city-week-month-title {
+            display: inline-block;
+
+            margin: 0;
+
+            color: #fff;
+            background: #5f8dec;
+
+            padding: 20px;
+
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+
+            font-family: "Poppins-SemiBold";
+            font-size: 28px;
+          }
+        }
+
+        .current-city-week-month-content {
+          height: calc(100% - 82px);
+
+          background: linear-gradient(#5f8dec, #699fef);
+
+          border-radius: $border-radius;
         }
       }
     }
   }
 
   .right-container {
-    width: 20%;
+    width: 25%;
   }
 }

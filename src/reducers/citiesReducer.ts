@@ -7,8 +7,8 @@ export const citiesReducer = createSlice({
   name: "cities",
   initialState,
   reducers: {
-    setCities: (state, action: PayloadAction<City[]>) => {
-      state = action.payload;
+    setCities: (_, action: PayloadAction<City[]>) => {
+      return action.payload;
     },
     addCity: (state, action: PayloadAction<City>) => {
       state.push(action.payload);
