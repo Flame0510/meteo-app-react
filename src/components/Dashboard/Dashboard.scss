@@ -1,4 +1,4 @@
-$title-color: #01175f;
+$primary-color: #01175f;
 $border-radius: 16px;
 
 .dashboard-container {
@@ -6,7 +6,7 @@ $border-radius: 16px;
 
   height: 100vh;
 
-  background: #d8d8d8;
+  background: rgba(255, 255, 255, 0.37);
 
   padding: 50px;
 
@@ -60,7 +60,7 @@ $border-radius: 16px;
 
         margin-left: 54px;
 
-        color: $title-color;
+        color: $primary-color;
 
         .current-city-title {
           margin: 0;
@@ -101,7 +101,7 @@ $border-radius: 16px;
         .current-city-today-title {
           margin: 20px 0 20px 20px;
 
-          color: $title-color;
+          color: $primary-color;
 
           font-size: 28px;
           font-family: "Poppins-SemiBold";
@@ -160,5 +160,80 @@ $border-radius: 16px;
 
   .right-container {
     width: 25%;
+
+    margin-left: 50px;
+
+    .right-container-add-city-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 36px auto 0 auto;
+
+      color: $primary-color;
+      background: none;
+
+      border: none;
+
+      font-size: 20px;
+      font-family: "Poppins-SemiBold";
+
+      cursor: pointer;
+
+      .right-container-add-city-btn-icon {
+        margin-right: 15px;
+      }
+    }
+
+    .right-container-city-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-top: 30px;
+
+      color: #fff;
+      background: linear-gradient(to right, #011354, #5b9fe3);
+
+      padding: 20px;
+
+      border-radius: $border-radius;
+
+      .right-container-city-content {
+        //width: 33%;
+
+        .right-container-city-content-typografy {
+          margin: 0;
+        }
+
+        .right-container-city-content-title {
+          font-size: 26px;
+          font-family: "Poppins-SemiBold";
+        }
+
+        .right-container-city-content-date {
+          margin-bottom: 12px;
+
+          font-size: 15px;
+          font-family: "Poppins-Medium";
+        }
+
+        .right-container-city-content-hour {
+          font-size: 12px;
+          font-family: "Poppins-Light";
+        }
+      }
+
+      .right-container-city-weather {
+        height: 100%;
+
+        margin: 0 32px;
+      }
+
+      .right-container-city-temperature {
+        font-size: 50px;
+        font-family: "Poppins-Bold";
+      }
+    }
   }
 }

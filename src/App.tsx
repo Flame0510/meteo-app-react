@@ -22,7 +22,7 @@ function App() {
 
       const city1 = (
         await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=Catania&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?q=Turin&units=metric&appid=${apiKey}`
         )
       ).data;
 
@@ -30,7 +30,7 @@ function App() {
 
       const city2 = (
         await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=Milano&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=${apiKey}`
         )
       ).data;
 
@@ -38,7 +38,7 @@ function App() {
 
       const city3 = (
         await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=Roma&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?q=Milan&units=metric&appid=${apiKey}`
         )
       ).data;
 
