@@ -1,23 +1,314 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/exports";
 import { City } from "../../models/city";
+import { CityToday } from "../../models/cityToday";
 import { RootState } from "../../store";
+
+import { format } from "date-fns";
 
 import cityBackground from "../../assets/cities/city1.jpg";
 
 import sunny from "../../assets/weather/sunny.png";
-import occLightRain from "../../assets/weather/occLightRain.png";
+import fewClouds from "../../assets/weather/few-clouds.png";
+import mist from "../../assets/weather/mist.png";
 import cloudy from "../../assets/weather/cloudy.png";
+import rain from "../../assets/weather/rain.png";
+import wind from "../../assets/weather/wind.png";
+import snow from "../../assets/weather/snow.png";
 
+import location from "../../assets/icons/location.png";
+import searchBtn from "../../assets/icons/search.png";
 import addBtn from "../../assets/icons/plus.png";
 
 import "./Dashboard.scss";
-import { time } from "console";
 
 const Dashboard = () => {
   const cities: City[] = useSelector((state: RootState) => state.cities);
 
   const [currentCity, setCurrentCity] = useState<City>();
+
+  //These are OpenWeathermap mockup data because it is not possible to get these data with a free plan
+  const [currentCityToday, setCurrentCityToday] = useState<CityToday>({
+    cod: "200",
+    message: 0,
+    cnt: 96,
+    list: [
+      {
+        dt: 1671296400,
+        main: {
+          temp: 20,
+          feels_like: 296.02,
+          temp_min: 296.34,
+          temp_max: 298.24,
+          pressure: 1015,
+          sea_level: 1015,
+          grnd_level: 933,
+          humidity: 50,
+          temp_kf: -1.9,
+        },
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10d",
+          },
+        ],
+        clouds: {
+          all: 97,
+        },
+        wind: {
+          speed: 1.06,
+          deg: 66,
+          gust: 2.16,
+        },
+        visibility: 10000,
+        pop: 0.32,
+        rain: {
+          "1h": 0.13,
+        },
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-08-30 16:00:00",
+      },
+      {
+        dt: 1671292800,
+        main: {
+          temp: 18,
+          feels_like: 296.07,
+          temp_min: 296.2,
+          temp_max: 296.31,
+          pressure: 1015,
+          sea_level: 1015,
+          grnd_level: 932,
+          humidity: 53,
+          temp_kf: 0.11,
+        },
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10d",
+          },
+        ],
+        clouds: {
+          all: 95,
+        },
+        wind: {
+          speed: 1.58,
+          deg: 103,
+          gust: 3.52,
+        },
+        visibility: 10000,
+        pop: 0.4,
+        rain: {
+          "1h": 0.24,
+        },
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-08-30 17:00:00",
+      },
+      {
+        dt: 1671289200,
+        main: {
+          temp: 21,
+          feels_like: 294.74,
+          temp_min: 292.84,
+          temp_max: 294.94,
+          pressure: 1015,
+          sea_level: 1015,
+          grnd_level: 931,
+          humidity: 60,
+          temp_kf: 2.1,
+        },
+        weather: [
+          {
+            id: 500,
+            main: "Rain",
+            description: "light rain",
+            icon: "10n",
+          },
+        ],
+        clouds: {
+          all: 93,
+        },
+        wind: {
+          speed: 1.97,
+          deg: 157,
+          gust: 3.39,
+        },
+        visibility: 10000,
+        pop: 0.33,
+        rain: {
+          "1h": 0.2,
+        },
+        sys: {
+          pod: "n",
+        },
+        dt_txt: "2022-08-30 18:00:00",
+      },
+      {
+        dt: 1671285600,
+        main: {
+          temp: 19,
+          feels_like: 293.99,
+          temp_min: 294.14,
+          temp_max: 294.14,
+          pressure: 1014,
+          sea_level: 1014,
+          grnd_level: 931,
+          humidity: 65,
+          temp_kf: 0,
+        },
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d",
+          },
+        ],
+        clouds: {
+          all: 100,
+        },
+        wind: {
+          speed: 0.91,
+          deg: 104,
+          gust: 1.92,
+        },
+        visibility: 10000,
+        pop: 0.53,
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-09-03 15:00:00",
+      },
+      {
+        dt: 1671282000,
+        main: {
+          temp: 17,
+          feels_like: 293.99,
+          temp_min: 294.14,
+          temp_max: 294.14,
+          pressure: 1014,
+          sea_level: 1014,
+          grnd_level: 931,
+          humidity: 65,
+          temp_kf: 0,
+        },
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d",
+          },
+        ],
+        clouds: {
+          all: 100,
+        },
+        wind: {
+          speed: 0.91,
+          deg: 104,
+          gust: 1.92,
+        },
+        visibility: 10000,
+        pop: 0.53,
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-09-03 15:00:00",
+      },
+      {
+        dt: 1671278400,
+        main: {
+          temp: 16,
+          feels_like: 293.99,
+          temp_min: 294.14,
+          temp_max: 294.14,
+          pressure: 1014,
+          sea_level: 1014,
+          grnd_level: 931,
+          humidity: 65,
+          temp_kf: 0,
+        },
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d",
+          },
+        ],
+        clouds: {
+          all: 100,
+        },
+        wind: {
+          speed: 0.91,
+          deg: 104,
+          gust: 1.92,
+        },
+        visibility: 10000,
+        pop: 0.53,
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-09-03 15:00:00",
+      },
+      {
+        dt: 1671274800,
+        main: {
+          temp: 18,
+          feels_like: 293.99,
+          temp_min: 294.14,
+          temp_max: 294.14,
+          pressure: 1014,
+          sea_level: 1014,
+          grnd_level: 931,
+          humidity: 65,
+          temp_kf: 0,
+        },
+        weather: [
+          {
+            id: 804,
+            main: "Clouds",
+            description: "overcast clouds",
+            icon: "04d",
+          },
+        ],
+        clouds: {
+          all: 100,
+        },
+        wind: {
+          speed: 0.91,
+          deg: 104,
+          gust: 1.92,
+        },
+        visibility: 10000,
+        pop: 0.53,
+        sys: {
+          pod: "d",
+        },
+        dt_txt: "2022-09-03 15:00:00",
+      },
+    ],
+    city: {
+      id: 3163858,
+      name: "Zocca",
+      coord: {
+        lat: 44.34,
+        lon: 10.99,
+      },
+      country: "IT",
+      population: 4593,
+      timezone: 7200,
+      sunrise: 1661834187,
+      sunset: 1661882248,
+    },
+  });
 
   const getDate = (timestamp: number) => {
     const date = new Date(timestamp * 1000);
@@ -31,22 +322,57 @@ const Dashboard = () => {
     );
   };
 
-  const getHour = (timestamp: number) => {
-    const date = new Date(timestamp * 1000);
+  const getHour = (timestamp: number, onlyHour: boolean = false) => {
+    const date = format(
+      new Date(timestamp * 1000),
+      onlyHour ? "h aaaa" : "hh:mm aaaa"
+    );
 
-    return date.toLocaleTimeString("en-EN", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    return date;
   };
 
-  useEffect(() => {
-    console.log("c ", cities);
+  const getWeatherIcon = (weather: string) => {
+    weather.toLowerCase();
 
+    switch (weather) {
+      case "sunny":
+        return sunny;
+
+      case "clear sky":
+        return sunny;
+
+      case "few clouds":
+        return fewClouds;
+
+      case "rain":
+        return rain;
+
+      case "mist":
+        return mist;
+
+      case "wind":
+        return wind;
+
+      case "snow":
+        return snow;
+
+      case "clear":
+        return cloudy;
+
+      case "clouds":
+        return cloudy;
+
+      default:
+        return cloudy;
+    }
+  };
+
+  const getWeatherClass = (weather: string) =>
+    weather.toLowerCase().replace(" ", "-");
+
+  useEffect(() => {
     setCurrentCity(cities[0]);
   }, [cities]);
-
-  useEffect(() => {}, [currentCity]);
 
   return (
     <div className="dashboard-container">
@@ -62,7 +388,8 @@ const Dashboard = () => {
               </h2>
               <img
                 className="current-city-left-container-weather"
-                src={sunny}
+                src={getWeatherIcon(currentCity.weather[0].description)}
+                alt={currentCity.weather[0].description}
               />
             </div>
 
@@ -77,7 +404,35 @@ const Dashboard = () => {
           <div className="current-city-bottom-container">
             <div className="current-city-today-container">
               <h2 className="current-city-today-title">Today</h2>
-              <div className="current-city-today-content"></div>
+              {currentCityToday?.list.length && (
+                <div className="current-city-today-content">
+                  <h3 className="current-city-today-now">Now</h3>
+
+                  <div className="current-city-today-line-container">
+                    <div className="current-city-today-line"></div>
+                  </div>
+
+                  <div className="current-city-today-content-element current-city-today-content-element-now ">
+                    <h2 className="current-city-today-content-element-temperature">
+                      {Math.round(currentCity.main.temp)}°
+                    </h2>
+                    <div className="current-city-today-content-element-sphere" />
+                    <span className="current-city-today-content-element-hour"></span>
+                  </div>
+
+                  {currentCityToday.list.map(({ dt, main: { temp } }) => (
+                    <div className="current-city-today-content-element">
+                      <h2 className="current-city-today-content-element-temperature">
+                        {Math.round(temp)}°
+                      </h2>
+                      <div className="current-city-today-content-element-sphere" />
+                      <span className="current-city-today-content-element-hour">
+                        {getHour(dt, true)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="current-city-week-month-container">
               <div className="current-city-week-month-title-container">
@@ -93,66 +448,108 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-      {cities.length > 1 && (
-        <div className="right-container">
-          <button className="right-container-add-city-btn">
-            <img
-              src={addBtn}
-              alt="add-button"
-              className="right-container-add-city-btn-icon"
-            />
-            <span>Add City</span>
-          </button>
 
-          <div className="right-container-city-container">
-            <div className="right-container-city-content">
-              <h2 className="right-container-city-content-title right-container-city-content-typografy">
-                {cities[1].name}
+      <div className="right-container">
+        {cities.length > 1 && (
+          <div className="right-container-cities-container">
+            <button className="right-container-add-city-btn">
+              <img
+                src={addBtn}
+                alt="add-button"
+                className="right-container-add-city-btn-icon"
+              />
+              <span>Add City</span>
+            </button>
+
+            <div
+              className={`right-container-city-container weather-${getWeatherClass(
+                cities[1].weather[0].description
+              )}`}
+            >
+              <div className="right-container-city-content">
+                <h2 className="right-container-city-content-title right-container-city-content-typografy">
+                  {cities[1].name}
+                </h2>
+                <h3 className="right-container-city-content-date right-container-city-content-typografy">
+                  {getDate(cities[1].dt)}
+                </h3>
+                <h4 className="right-container-city-content-hour right-container-city-content-typografy">
+                  {getHour(cities[1].dt)}
+                </h4>
+              </div>
+
+              <img
+                src={getWeatherIcon(cities[1].weather[0].description)}
+                alt={cities[1].weather[0].description}
+                className="right-container-city-weather"
+              />
+
+              <h2 className="right-container-city-temperature">
+                {Math.round(cities[1].main.temp)}°
               </h2>
-              <h3 className="right-container-city-content-date right-container-city-content-typografy">
-                {getDate(cities[1].dt)}
-              </h3>
-              <h4 className="right-container-city-content-hour right-container-city-content-typografy">
-                {getHour(cities[1].dt)}
-              </h4>
             </div>
 
-            <img
-              src={occLightRain}
-              alt="light-rain"
-              className="right-container-city-weather"
-            />
+            <div
+              className={`right-container-city-container weather-${getWeatherClass(
+                cities[2].weather[0].description
+              )}`}
+            >
+              <div className="right-container-city-content">
+                <h2 className="right-container-city-content-title right-container-city-content-typografy">
+                  {cities[2].name}
+                </h2>
+                <h3 className="right-container-city-content-date right-container-city-content-typografy">
+                  {getDate(cities[2].dt)}
+                </h3>
+                <h4 className="right-container-city-content-hour right-container-city-content-typografy">
+                  {getHour(cities[2].dt)}
+                </h4>
+              </div>
 
-            <h2 className="right-container-city-temperature">
-              {Math.round(cities[1].main.temp)}°
-            </h2>
+              <img
+                src={getWeatherIcon(cities[2].weather[0].description)}
+                alt={cities[2].weather[0].description}
+                className="right-container-city-weather"
+              />
+
+              <h2 className="right-container-city-temperature">
+                {Math.round(cities[2].main.temp)}
+              </h2>
+            </div>
           </div>
+        )}
 
-          <div className="right-container-city-container">
-            <div className="right-container-city-content">
-              <h2 className="right-container-city-content-title right-container-city-content-typografy">
-                {cities[2].name}
-              </h2>
-              <h3 className="right-container-city-content-date right-container-city-content-typografy">
-                {getDate(cities[2].dt)}
-              </h3>
-              <h4 className="right-container-city-content-hour right-container-city-content-typografy">
-                {getHour(cities[2].dt)}
-              </h4>
-            </div>
-
-            <img
-              src={cloudy}
-              alt="cloudy"
-              className="right-container-city-weather"
+        <div className="right-container-search-container">
+          <h2 className="right-container-search-title">Search</h2>
+          <div className="right-container-search-input-container">
+            <input
+              className="right-container-search-input"
+              placeholder="ex: Miami"
             />
-
-            <h2 className="right-container-city-temperature">
-              {Math.round(cities[2].main.temp)}
-            </h2>
+            <button className="right-container-search-input-button">
+              <img
+                className="right-container-search-input-button-icon"
+                src={searchBtn}
+                alt="search button"
+              />
+            </button>
           </div>
         </div>
-      )}
+
+        <div className="right-container-localization-container">
+          <h2 className="right-container-localization-title">Localization</h2>
+          <button className="right-container-localization-button">
+            <img
+              className="right-container-localization-button-icon"
+              src={location}
+              alt="localization button"
+            />
+            <h2 className="right-container-localization-button-label">
+              Add Localization
+            </h2>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
