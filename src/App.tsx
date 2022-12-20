@@ -5,7 +5,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 
 import { useDispatch } from "react-redux";
 
-import { setCities, addCity } from "./reducers/citiesReducer";
+import { setCities } from "./slices/citiesSlice";
 
 import { env } from "./environments";
 
@@ -43,9 +43,6 @@ function App() {
       ).data;
 
       cities.push(city3);
-
-      console.log(cities);
-      
 
       dispatch(setCities(cities));
     } catch (error) {

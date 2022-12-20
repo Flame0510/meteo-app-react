@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import citiesReducer from './reducers/citiesReducer'
+import citiesSlice from './slices/citiesSlice'
 
 export const store = configureStore({
   reducer: {
-    cities: citiesReducer,
+    cities: citiesSlice,
   },
 })
 

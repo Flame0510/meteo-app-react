@@ -1,9 +1,9 @@
 $primary-color: #01175f;
 $border-radius: 16px;
 
-.dashboard-container {
-  display: flex;
+$shadow: 0px 14px 12px 4px rgba(0, 0, 0, 0.08);
 
+.dashboard-container {
   height: 100vh;
 
   background: #f1f1f1;
@@ -11,16 +11,19 @@ $border-radius: 16px;
   padding: 50px;
 
   .current-city-container {
-    width: 66.66666667%;
+    display: flex;
+    justify-content: space-between;
 
     .current-city {
       display: flex;
       align-items: center;
 
-      height: calc(50% - 30px);
+      width: 66.66666667%;
 
       background-position: center;
       background-size: cover;
+
+      box-shadow: $shadow;
 
       border-radius: $border-radius;
 
@@ -38,6 +41,8 @@ $border-radius: 16px;
 
         color: #fff;
         background: linear-gradient(#567be8, #6da7f1);
+
+        box-shadow: $shadow;
 
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
@@ -85,170 +90,13 @@ $border-radius: 16px;
       }
     }
 
-    .current-city-bottom-container {
-      display: flex;
-      justify-content: space-between;
+    .cities-container {
+      width: 33.33333333%;
 
-      height: 50%;
-
-      margin-top: 30px;
-
-      .current-city-today-container {
-        width: 33.333333%;
-
-        .current-city-today-title {
-          margin: 20px 0 20px 20px;
-
-          color: $primary-color;
-
-          font-size: 28px;
-          font-family: "Poppins-SemiBold";
-        }
-
-        .current-city-today-content {
-          height: calc(100% - 82px);
-
-          overflow: hidden;
-
-          color: #fff;
-          background: linear-gradient(#5f8dec, #699fef);
-
-          text-align: center;
-
-          border-radius: $border-radius;
-
-          position: relative;
-
-          .current-city-today-now {
-            margin-top: 45px;
-            margin-bottom: 10px;
-
-            font-size: 18px;
-            font-family: "Poppins-Bold";
-          }
-
-          .current-city-today-line-container {
-            display: flex;
-            justify-content: center;
-
-            width: 100%;
-            height: 100%;
-
-            position: absolute;
-            top: 100px;
-
-            .current-city-today-line {
-              width: 8px;
-              height: 100%;
-
-              background: linear-gradient(#fff, transparent);
-            }
-          }
-
-          .current-city-today-content-element {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            margin-bottom: 26px;
-
-            .current-city-today-content-element-temperature {
-              width: 50px;
-
-              margin: 0;
-
-              font-size: 30px;
-              font-family: "Poppins-Light";
-            }
-
-            .current-city-today-content-element-sphere {
-              width: 20px;
-              height: 20px;
-
-              margin: 0 32px;
-
-              background: #fff;
-
-              border-radius: 50%;
-            }
-
-            .current-city-today-content-element-hour {
-              width: 50px;
-
-              white-space: nowrap;
-            }
-          }
-
-          .current-city-today-content-element-now {
-            .current-city-today-content-element-temperature {
-              font-size: 40px;
-              font-family: "Poppins-Bold";
-            }
-
-            .current-city-today-content-element-sphere {
-              width: 30px;
-              height: 30px;
-            }
-          }
-        }
-      }
-
-      .current-city-week-month-container {
-        width: 66.666667%;
-
-        margin-left: 50px;
-
-        .current-city-week-month-title-container {
-          display: inline-block;
-
-          background: #fff;
-
-          border-top-left-radius: $border-radius;
-          border-top-right-radius: $border-radius;
-
-          .current-city-week-month-title {
-            display: inline-block;
-
-            margin: 0;
-
-            color: #fff;
-            background: #5f8dec;
-
-            padding: 20px;
-
-            border-top-left-radius: $border-radius;
-            border-top-right-radius: $border-radius;
-
-            font-family: "Poppins-SemiBold";
-            font-size: 28px;
-          }
-        }
-
-        .current-city-week-month-content {
-          height: calc(100% - 82px);
-
-          background: linear-gradient(#5f8dec, #699fef);
-
-          border-radius: $border-radius;
-        }
-      }
-    }
-  }
-
-  //RIGHT CONTAINER
-  .right-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-
-    width: 33.33333333%;
-
-    margin-left: 50px;
-
-    .right-container-cities-container {
       margin-top: 36px;
+      margin-left: 50px;
 
-      .right-container-add-city-btn {
+      .add-city-btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -265,12 +113,12 @@ $border-radius: 16px;
 
         cursor: pointer;
 
-        .right-container-add-city-btn-icon {
+        .add-city-btn-icon {
           margin-right: 15px;
         }
       }
 
-      .right-container-city-container {
+      .city-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -279,6 +127,8 @@ $border-radius: 16px;
 
         color: #fff;
         background: linear-gradient(to right, #011354, #5b9fe3);
+
+        box-shadow: $shadow;
 
         padding: 20px;
 
@@ -291,39 +141,39 @@ $border-radius: 16px;
           background: #6b768a;
         }
 
-        .right-container-city-content {
+        .city-content {
           min-width: 98px;
           width: min-content;
 
-          .right-container-city-content-typografy {
+          .city-content-typografy {
             margin: 0;
           }
 
-          .right-container-city-content-title {
+          .city-content-title {
             font-size: 26px;
             font-family: "Poppins-SemiBold";
           }
 
-          .right-container-city-content-date {
+          .city-content-date {
             margin-bottom: 12px;
 
             font-size: 15px;
             font-family: "Poppins-Medium";
           }
 
-          .right-container-city-content-hour {
+          .city-content-hour {
             font-size: 12px;
             font-family: "Poppins-Light";
           }
         }
 
-        .right-container-city-weather {
+        .city-weather {
           width: 80px;
 
           margin: 0 32px;
         }
 
-        .right-container-city-temperature {
+        .city-temperature {
           width: 96px;
 
           margin: 0;
@@ -335,11 +185,375 @@ $border-radius: 16px;
         }
       }
     }
+  }
+}
 
-    .right-container-search-container {
+//BOTTOM CONTAINER
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+
+  height: 50%;
+
+  .current-city-bottom-container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 66.66666667%;
+
+    margin-top: 30px;
+
+    .current-city-today-container {
+      width: 33.333333%;
+      
+
+      .current-city-today-title {
+        margin: 20px 0 20px 20px;
+
+        color: $primary-color;
+
+        font-size: 28px;
+        font-family: "Poppins-SemiBold";
+      }
+
+      .current-city-today-content {
+        height: calc(100% - 82px);
+
+        overflow: hidden;
+
+        color: #fff;
+        background: linear-gradient(#5f8dec, #699fef);
+
+        box-shadow: $shadow;
+
+        text-align: center;
+
+        border-radius: $border-radius;
+
+        position: relative;
+
+        .current-city-today-now {
+          margin-top: 45px;
+          margin-bottom: 10px;
+
+          font-size: 18px;
+          font-family: "Poppins-Bold";
+        }
+
+        .current-city-today-line-container {
+          display: flex;
+          justify-content: center;
+
+          width: 100%;
+          height: 100%;
+
+          position: absolute;
+          top: 100px;
+
+          .current-city-today-line {
+            width: 8px;
+            height: 100%;
+
+            background: linear-gradient(#fff, transparent);
+          }
+        }
+
+        .current-city-today-content-element {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          margin-bottom: 26px;
+
+          .current-city-today-content-element-temperature {
+            width: 50px;
+
+            margin: 0;
+
+            font-size: 30px;
+            font-family: "Poppins-Light";
+          }
+
+          .current-city-today-content-element-sphere {
+            width: 20px;
+            height: 20px;
+
+            margin: 0 32px;
+
+            background: #fff;
+
+            border-radius: 50%;
+          }
+
+          .current-city-today-content-element-hour {
+            width: 50px;
+
+            white-space: nowrap;
+          }
+        }
+
+        .current-city-today-content-element-now {
+          .current-city-today-content-element-temperature {
+            font-size: 40px;
+            font-family: "Poppins-Bold";
+          }
+
+          .current-city-today-content-element-sphere {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .current-city-week-month-container {
+      width: 66.666667%;
+
+      margin-left: 50px;
+
+      position: relative;
+
+      .current-city-week-month-title-container {
+        display: inline-block;
+
+        background: #fff;
+
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+
+        position: relative;
+
+        z-index: 1;
+
+        .current-city-week-month-title {
+          display: inline-block;
+
+          margin: 0;
+
+          color: $primary-color;
+          background: #fff;
+
+          padding: 20px;
+
+          border-top-left-radius: $border-radius;
+          border-top-right-radius: $border-radius;
+
+          font-family: "Poppins-SemiBold";
+          font-size: 28px;
+
+          cursor: pointer;
+
+          &.active {
+            color: #fff;
+            background: #5f8dec;
+          }
+        }
+      }
+
+      .current-city-week-month-content {
+        height: calc(100% - 82px);
+
+        background: linear-gradient(#5f8dec, #699fef);
+
+        box-shadow: $shadow;
+
+        border-radius: $border-radius;
+
+        position: relative;
+
+        z-index: 1;
+
+        &.week-selected {
+          border-top-left-radius: 0;
+        }
+
+        .current-city-week-month-content-week,
+        .current-city-week-month-content-month {
+          height: calc(100% - 80px);
+
+          padding: 30px;
+          padding-bottom: 20px;
+        }
+
+        .current-city-week-month-content-week {
+          display: flex;
+          justify-content: space-between;
+
+          .current-city-week-month-content-week-day {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            width: 33.33333333%;
+
+            color: #fff;
+            background: #729eee;
+
+            box-shadow: $shadow;
+
+            padding: 20px;
+
+            font-family: "Poppins-SemiBold";
+
+            border-radius: $border-radius;
+
+            &:nth-child(2) {
+              margin: 0 30px;
+            }
+
+            .current-city-week-month-content-week-day-title {
+              margin: 0;
+              font-size: 22px;
+            }
+
+            .current-city-week-month-content-week-day-temperature {
+              margin: 0;
+              font-size: 42px;
+            }
+
+            .current-city-week-month-content-week-day-weather {
+              height: 80px;
+            }
+          }
+        }
+
+        .current-city-week-month-content-month {
+          display: flex;
+          justify-content: space-between;
+
+          color: #fff;
+
+          .current-city-week-month-content-month-content-container {
+            display: flex;
+
+            background: #729eee;
+
+            box-shadow: $shadow;
+
+            padding: 30px;
+
+            border-radius: $border-radius;
+
+            .current-city-week-month-content-month-weather-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              width: 33.33333333%;
+
+              margin-right: 40px;
+
+              position: relative;
+
+              .current-city-week-month-content-month-weather-date {
+                margin: 0;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                font-size: 22px;
+                font-family: "Poppins-SemiBold";
+              }
+
+              .current-city-week-month-content-month-weather {
+                width: 128px;
+              }
+            }
+
+            .current-city-week-month-content-month-content {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+
+              width: 66.66666667%;
+              height: 100%;
+
+              font-family: 18px;
+              font-family: "Poppins-Regular";
+
+              .current-city-week-month-content-month-data-top {
+                .current-city-week-month-content-month-temperature {
+                  margin: 0;
+                  margin-bottom: 6px;
+
+                  font-size: 36px;
+                  font-family: "Poppins-SemiBold";
+                }
+
+                .current-city-week-month-content-month-weather-text {
+                  margin: 0;
+                  margin-bottom: 14px;
+                }
+              }
+
+              .current-city-week-month-content-month-data-bottom {
+                margin: 0;
+
+                .current-city-week-month-content-month-data-text {
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .current-city-week-month-content-dots {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .current-city-week-month-content-dot {
+            width: 6px;
+            height: 6px;
+
+            margin: 0 5px;
+
+            background: #fff;
+
+            opacity: 0.4;
+
+            border-radius: 50%;
+
+            &.active {
+              width: 10px;
+              height: 10px;
+
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .current-city-week-month-white-angle {
+        width: 50px;
+        height: 100px;
+
+        background: #fff;
+
+        position: absolute;
+        top: 50px;
+        left: 0;
+
+        z-index: 0;
+      }
+    }
+  }
+
+  .bottom-right-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 33.33333333%;
+
+    margin-left: 50px;
+
+    .search-container {
       margin-top: 50px;
 
-      .right-container-search-title {
+      .search-title {
         margin: 0;
         margin-left: 20px;
         margin-bottom: 20px;
@@ -350,7 +564,7 @@ $border-radius: 16px;
         font-family: "Poppins-SemiBold";
       }
 
-      .right-container-search-input-container {
+      .search-input-container {
         display: flex;
         justify-content: space-between;
 
@@ -359,9 +573,11 @@ $border-radius: 16px;
 
         background: #fff;
 
+        box-shadow: $shadow;
+
         border-radius: $border-radius;
 
-        .right-container-search-input {
+        .search-input {
           width: calc(100% - 56px);
 
           color: #b8b8b8;
@@ -376,7 +592,7 @@ $border-radius: 16px;
           outline: none;
         }
 
-        .right-container-search-input-button {
+        .search-input-button {
           width: 56px;
           height: 100%;
 
@@ -387,17 +603,17 @@ $border-radius: 16px;
 
           cursor: pointer;
 
-          .right-container-search-input-button-icon {
+          .search-input-button-icon {
             width: 24px;
           }
         }
       }
     }
 
-    .right-container-localization-container {
+    .localization-container {
       margin-top: 50px;
 
-      .right-container-localization-title {
+      .localization-title {
         margin: 0;
         margin-left: 20px;
         margin-bottom: 20px;
@@ -408,22 +624,24 @@ $border-radius: 16px;
         font-family: "Poppins-SemiBold";
       }
 
-      .right-container-localization-button {
+      .localization-button {
         width: 100%;
         height: 140px;
 
         background: linear-gradient(to right, #587fe9, #6ea7f0);
+
+        box-shadow: $shadow;
 
         border: none;
         border-radius: $border-radius;
 
         cursor: pointer;
 
-        .right-container-localization-input-button-icon {
+        .localization-input-button-icon {
           width: 28px;
         }
 
-        .right-container-localization-button-label {
+        .localization-button-label {
           margin: 0;
           margin-top: 20px;
 
