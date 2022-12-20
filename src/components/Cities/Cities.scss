@@ -1,0 +1,97 @@
+@import "../../assets/style.scss";
+
+.cities-container {
+  width: 33.33333333%;
+
+  margin-top: 36px;
+  margin-left: 50px;
+
+  .add-city-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto 0 auto;
+
+    color: $primary-color;
+    background: none;
+
+    border: none;
+
+    font-size: 20px;
+    font-family: "Poppins-SemiBold";
+
+    cursor: pointer;
+
+    .add-city-btn-icon {
+      margin-right: 15px;
+    }
+  }
+
+  .city-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 30px;
+
+    color: #fff;
+    background: linear-gradient(to right, #011354, #5b9fe3);
+
+    box-shadow: $shadow;
+
+    padding: 20px;
+
+    border-radius: $border-radius;
+
+    &[class*="snow"],
+    &[class*="rain"],
+    &[class*="snow"],
+    &[class*="clouds"] {
+      background: #6b768a;
+    }
+
+    .city-content {
+      min-width: 98px;
+      width: min-content;
+
+      .city-content-typografy {
+        margin: 0;
+      }
+
+      .city-content-title {
+        font-size: 26px;
+        font-family: "Poppins-SemiBold";
+      }
+
+      .city-content-date {
+        margin-bottom: 12px;
+
+        font-size: 15px;
+        font-family: "Poppins-Medium";
+      }
+
+      .city-content-hour {
+        font-size: 12px;
+        font-family: "Poppins-Light";
+      }
+    }
+
+    .city-weather {
+      width: 80px;
+
+      margin: 0 32px;
+    }
+
+    .city-temperature {
+      width: 96px;
+
+      margin: 0;
+
+      text-align: center;
+
+      font-size: 50px;
+      font-family: "Poppins-Bold";
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@import "../../assets/style.scss";
+
+.current-city-today-container {
+  width: 33.333333%;
+
+  .current-city-today-title {
+    margin: 20px 0 20px 20px;
+
+    color: $primary-color;
+
+    font-size: 28px;
+    font-family: "Poppins-SemiBold";
+  }
+
+  .current-city-today-content {
+    height: calc(100% - 82px);
+
+    overflow: hidden;
+
+    color: #fff;
+    background: linear-gradient(#5f8dec, #699fef);
+
+    box-shadow: $shadow;
+
+    text-align: center;
+
+    border-radius: $border-radius;
+
+    position: relative;
+
+    .current-city-today-now {
+      margin-top: 45px;
+      margin-bottom: 10px;
+
+      font-size: 18px;
+      font-family: "Poppins-Bold";
+    }
+
+    .current-city-today-line-container {
+      display: flex;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 100px;
+
+      .current-city-today-line {
+        width: 8px;
+        height: 100%;
+
+        background: linear-gradient(#fff, transparent);
+      }
+    }
+
+    .current-city-today-content-element {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-bottom: 26px;
+
+      .current-city-today-content-element-temperature {
+        width: 50px;
+
+        margin: 0;
+
+        font-size: 30px;
+        font-family: "Poppins-Light";
+      }
+
+      .current-city-today-content-element-sphere {
+        width: 20px;
+        height: 20px;
+
+        margin: 0 32px;
+
+        background: #fff;
+
+        border-radius: 50%;
+      }
+
+      .current-city-today-content-element-hour {
+        width: 50px;
+
+        white-space: nowrap;
+      }
+    }
+
+    .current-city-today-content-element-now {
+      .current-city-today-content-element-temperature {
+        font-size: 40px;
+        font-family: "Poppins-Bold";
+      }
+
+      .current-city-today-content-element-sphere {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

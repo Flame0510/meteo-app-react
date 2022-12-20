@@ -1,0 +1,235 @@
+@import "../../assets/style.scss";
+
+.current-city-week-month-container {
+  width: 66.666667%;
+
+  margin-left: 50px;
+
+  position: relative;
+
+  .current-city-week-month-title-container {
+    display: inline-block;
+
+    background: #fff;
+
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    position: relative;
+
+    z-index: 1;
+
+    .current-city-week-month-title {
+      display: inline-block;
+
+      margin: 0;
+
+      color: $primary-color;
+      background: #fff;
+
+      padding: 20px;
+
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+
+      font-family: "Poppins-SemiBold";
+      font-size: 28px;
+
+      cursor: pointer;
+
+      &.active {
+        color: #fff;
+        background: #5f8dec;
+      }
+    }
+  }
+
+  .current-city-week-month-content {
+    height: calc(100% - 82px);
+
+    background: linear-gradient(#5f8dec, #699fef);
+
+    box-shadow: $shadow;
+
+    border-radius: $border-radius;
+
+    position: relative;
+
+    z-index: 1;
+
+    &.week-selected {
+      border-top-left-radius: 0;
+    }
+
+    .current-city-week-month-content-week,
+    .current-city-week-month-content-month {
+      height: calc(100% - 80px);
+
+      padding: 30px;
+      padding-bottom: 20px;
+    }
+
+    .current-city-week-month-content-week {
+      display: flex;
+      justify-content: space-between;
+
+      .current-city-week-month-content-week-day {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        width: 33.33333333%;
+
+        color: #fff;
+        background: #729eee;
+
+        box-shadow: $shadow;
+
+        padding: 20px;
+
+        font-family: "Poppins-SemiBold";
+
+        border-radius: $border-radius;
+
+        &:nth-child(2) {
+          margin: 0 30px;
+        }
+
+        .current-city-week-month-content-week-day-title {
+          margin: 0;
+          font-size: 22px;
+        }
+
+        .current-city-week-month-content-week-day-temperature {
+          margin: 0;
+          font-size: 42px;
+        }
+
+        .current-city-week-month-content-week-day-weather {
+          height: 80px;
+        }
+      }
+    }
+
+    .current-city-week-month-content-month {
+      display: flex;
+      justify-content: space-between;
+
+      color: #fff;
+
+      .current-city-week-month-content-month-content-container {
+        display: flex;
+
+        background: #729eee;
+
+        box-shadow: $shadow;
+
+        padding: 30px;
+
+        border-radius: $border-radius;
+
+        .current-city-week-month-content-month-weather-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 33.33333333%;
+
+          margin-right: 40px;
+
+          position: relative;
+
+          .current-city-week-month-content-month-weather-date {
+            margin: 0;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            font-size: 22px;
+            font-family: "Poppins-SemiBold";
+          }
+
+          .current-city-week-month-content-month-weather {
+            width: 128px;
+          }
+        }
+
+        .current-city-week-month-content-month-content {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+
+          width: 66.66666667%;
+          height: 100%;
+
+          font-family: 18px;
+          font-family: "Poppins-Regular";
+
+          .current-city-week-month-content-month-data-top {
+            .current-city-week-month-content-month-temperature {
+              margin: 0;
+              margin-bottom: 6px;
+
+              font-size: 36px;
+              font-family: "Poppins-SemiBold";
+            }
+
+            .current-city-week-month-content-month-weather-text {
+              margin: 0;
+              margin-bottom: 14px;
+            }
+          }
+
+          .current-city-week-month-content-month-data-bottom {
+            margin: 0;
+
+            .current-city-week-month-content-month-data-text {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .current-city-week-month-content-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .current-city-week-month-content-dot {
+        width: 6px;
+        height: 6px;
+
+        margin: 0 5px;
+
+        background: #fff;
+
+        opacity: 0.4;
+
+        border-radius: 50%;
+
+        &.active {
+          width: 10px;
+          height: 10px;
+
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .current-city-week-month-white-angle {
+    width: 50px;
+    height: 100px;
+
+    background: #fff;
+
+    position: absolute;
+    top: 50px;
+    left: 0;
+
+    z-index: 0;
+  }
+}
