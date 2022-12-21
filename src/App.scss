@@ -1,0 +1,19 @@
+@import "./assets/style.scss";
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  background: #f1f1f1;
+
+  @media screen and (min-width: $xl) and (min-height: 1124px) {
+    height: 100vh;
+  }
+
+  /* @media screen and (min-height: 1124px) {
+    height: 100vh;
+  } */
+}

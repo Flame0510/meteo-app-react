@@ -46,7 +46,7 @@ function App() {
 
       dispatch(setCities(cities));
     } catch (error) {
-      console.log("GET CITIES ERROR: ", error);
+      console.log(error);
     }
   };
 
@@ -54,7 +54,11 @@ function App() {
     getCities();
   }, []);
 
-  return <Dashboard />;
+  return (
+    <div className="app-container">
+      <Dashboard />
+    </div>
+  );
 }
 
 export default App;

@@ -1,11 +1,17 @@
 @import "../../assets/style.scss";
 
 .cities-container {
-  width: 33.33333333%;
+  min-width: 300px;
+  width: 100%;
 
   margin-top: 36px;
-  margin-left: 50px;
 
+  @media screen and (min-width: $xl) {
+    width: 33.33333333%;
+    margin-left: 50px;
+  }
+
+  //ADD CITY BUTTON
   .add-city-btn {
     display: flex;
     justify-content: center;
@@ -23,11 +29,13 @@
 
     cursor: pointer;
 
+    //ADD ICON
     .add-city-btn-icon {
       margin-right: 15px;
     }
   }
 
+  //CITY CONTAINER
   .city-container {
     display: flex;
     justify-content: space-between;
@@ -51,6 +59,7 @@
       background: #6b768a;
     }
 
+    //CITY CONTENT
     .city-content {
       min-width: 98px;
       width: min-content;
@@ -59,11 +68,13 @@
         margin: 0;
       }
 
+      //TITLE
       .city-content-title {
         font-size: 26px;
         font-family: "Poppins-SemiBold";
       }
 
+      //DATE
       .city-content-date {
         margin-bottom: 12px;
 
@@ -71,18 +82,25 @@
         font-family: "Poppins-Medium";
       }
 
+      //HOUR
       .city-content-hour {
         font-size: 12px;
         font-family: "Poppins-Light";
       }
     }
 
+    //WEATHER
     .city-weather {
-      width: 80px;
+      width: 50px;
 
       margin: 0 32px;
+
+      @media screen and (min-width: 375px) {
+        width: 80px;
+      }
     }
 
+    //TEMPERATURE
     .city-temperature {
       width: 96px;
 

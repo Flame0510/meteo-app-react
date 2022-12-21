@@ -1,14 +1,17 @@
 @import "../../assets/style.scss";
 
-.current-city-week-month-container {
-  width: 66.666667%;
-
-  margin-left: 50px;
+.city-week-month-container {
+  width: 100%;
 
   position: relative;
 
-  .current-city-week-month-title-container {
-    display: inline-block;
+  @media screen and (min-width: $sm) {
+    height: 500px;
+  }
+
+  //TITLE CONTAINER
+  .city-week-month-title-container {
+    display: flex;
 
     background: #fff;
 
@@ -19,8 +22,13 @@
 
     z-index: 1;
 
-    .current-city-week-month-title {
+    @media screen and (min-width: $sm) {
       display: inline-block;
+    }
+
+    //TITLE
+    .city-week-month-title {
+      width: 50%;
 
       margin: 0;
 
@@ -32,10 +40,20 @@
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
 
+      text-align: center;
+
       font-family: "Poppins-SemiBold";
       font-size: 28px;
 
       cursor: pointer;
+
+      @media screen and (min-width: $sm) {
+        display: inline-block;
+
+        width: auto;
+
+        text-align: left;
+      }
 
       &.active {
         color: #fff;
@@ -44,7 +62,8 @@
     }
   }
 
-  .current-city-week-month-content {
+  //CONTENT
+  .city-week-month-content {
     height: calc(100% - 82px);
 
     background: linear-gradient(#5f8dec, #699fef);
@@ -61,25 +80,37 @@
       border-top-left-radius: 0;
     }
 
-    .current-city-week-month-content-week,
-    .current-city-week-month-content-month {
+    &.month-selected {
+      border-top-right-radius: 0;
+
+      @media screen and (min-width: $sm) {
+        border-top-right-radius: $border-radius;
+      }
+    }
+
+    .city-week-month-content-week,
+    .city-week-month-content-month {
       height: calc(100% - 80px);
 
       padding: 30px;
       padding-bottom: 20px;
     }
 
-    .current-city-week-month-content-week {
-      display: flex;
-      justify-content: space-between;
+    //WEEK
+    .city-week-month-content-week {
+      @media screen and (min-width: $sm) {
+        display: flex;
+        justify-content: space-between;
+      }
 
-      .current-city-week-month-content-week-day {
+      //DAY
+      .city-week-month-content-week-day {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
 
-        width: 33.33333333%;
+        min-width: 80px;
 
         color: #fff;
         background: #729eee;
@@ -92,34 +123,57 @@
 
         border-radius: $border-radius;
 
-        &:nth-child(2) {
-          margin: 0 30px;
+        @media screen and (min-width: $sm) {
+          width: 33.33333333%;
         }
 
-        .current-city-week-month-content-week-day-title {
+        @media screen and (min-width: $md) {
+          padding: 16px;
+        }
+
+        &:nth-child(2) {
+          margin: 20px 0;
+
+          @media screen and (min-width: $sm) {
+            margin: 0 30px;
+          }
+
+          @media screen and (min-width: $xl) {
+            margin: 0 30px;
+          }
+        }
+
+        //TITLE
+        .city-week-month-content-week-day-title {
           margin: 0;
           font-size: 22px;
         }
 
-        .current-city-week-month-content-week-day-temperature {
+        //TEMPERATURE
+        .city-week-month-content-week-day-temperature {
           margin: 0;
           font-size: 42px;
         }
 
-        .current-city-week-month-content-week-day-weather {
+        //WEATHER
+        .city-week-month-content-week-day-weather {
           height: 80px;
         }
       }
     }
 
-    .current-city-week-month-content-month {
+    //MONTH
+    .city-week-month-content-month {
       display: flex;
       justify-content: space-between;
 
       color: #fff;
 
-      .current-city-week-month-content-month-content-container {
+      //CONTENT CONTAINER
+      .city-week-month-content-month-content-container {
         display: flex;
+
+        width: 100%;
 
         background: #729eee;
 
@@ -129,7 +183,8 @@
 
         border-radius: $border-radius;
 
-        .current-city-week-month-content-month-weather-container {
+        //WEATHER CONTAINER
+        .city-week-month-content-month-weather-container {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -140,7 +195,8 @@
 
           position: relative;
 
-          .current-city-week-month-content-month-weather-date {
+          //DATE
+          .city-week-month-content-month-weather-date {
             margin: 0;
 
             position: absolute;
@@ -151,12 +207,14 @@
             font-family: "Poppins-SemiBold";
           }
 
-          .current-city-week-month-content-month-weather {
+          //WEATHER ICON
+          .city-week-month-content-month-weather {
             width: 128px;
           }
         }
 
-        .current-city-week-month-content-month-content {
+        //CONTENT
+        .city-week-month-content-month-content {
           display: flex;
           justify-content: space-between;
           flex-direction: column;
@@ -164,11 +222,13 @@
           width: 66.66666667%;
           height: 100%;
 
-          font-family: 18px;
+          font-size: 18px;
           font-family: "Poppins-Regular";
 
-          .current-city-week-month-content-month-data-top {
-            .current-city-week-month-content-month-temperature {
+          //DATA TOP CONTAINER
+          .city-week-month-content-month-data-top {
+            //TEMPERATURE
+            .city-week-month-content-month-temperature {
               margin: 0;
               margin-bottom: 6px;
 
@@ -176,16 +236,19 @@
               font-family: "Poppins-SemiBold";
             }
 
-            .current-city-week-month-content-month-weather-text {
+            //TEXT
+            .city-week-month-content-month-weather-text {
               margin: 0;
               margin-bottom: 14px;
             }
           }
 
-          .current-city-week-month-content-month-data-bottom {
+          //DATA BOTTOM CONTAINER
+          .city-week-month-content-month-data-bottom {
             margin: 0;
 
-            .current-city-week-month-content-month-data-text {
+            //TEXT
+            .city-week-month-content-month-data-text {
               margin: 0;
             }
           }
@@ -193,12 +256,16 @@
       }
     }
 
-    .current-city-week-month-content-dots {
+    //DOTS CONTAINER
+    .city-week-month-content-dots {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      .current-city-week-month-content-dot {
+      padding-bottom: 20px;
+
+      //DOT
+      .city-week-month-content-dot {
         width: 6px;
         height: 6px;
 
@@ -220,8 +287,9 @@
     }
   }
 
-  .current-city-week-month-white-angle {
-    width: 50px;
+  //WHITE RECTANGULAR
+  .city-week-month-white-rectangular {
+    width: 100%;
     height: 100px;
 
     background: #fff;
@@ -231,5 +299,9 @@
     left: 0;
 
     z-index: 0;
+
+    @media screen and (min-width: $sm) {
+      width: 50px;
+    }
   }
 }

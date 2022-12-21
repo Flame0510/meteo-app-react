@@ -1,8 +1,9 @@
 @import "../../assets/style.scss";
 
 .search-container {
-  margin-top: 50px;
+  width: 100%;
 
+  //TITLE
   .search-title {
     margin: 0;
     margin-left: 20px;
@@ -14,6 +15,7 @@
     font-family: "Poppins-SemiBold";
   }
 
+  //INPUT CONTAINER
   .search-input-container {
     display: flex;
     justify-content: space-between;
@@ -27,6 +29,7 @@
 
     border-radius: $border-radius;
 
+    //INPUT
     .search-input {
       width: calc(100% - 56px);
 
@@ -35,15 +38,21 @@
       padding: 60px 40px;
 
       font-size: 28px;
+      font-family: "Poppins-SemiBold";
 
       border: none;
       border-radius: $border-radius;
 
       outline: none;
+
+      &::placeholder {
+        color: #b8b8b8;
+      }
     }
 
+    //BUTTON
     .search-input-button {
-      width: 56px;
+      width: 120px;
       height: 100%;
 
       background: linear-gradient(#5374e7, #77b9f5);
@@ -51,7 +60,17 @@
       border: none;
       border-radius: $border-radius;
 
+      transition: $transition;
+
       cursor: pointer;
+
+      &:hover {
+        width: 120px;
+      }
+
+      @media screen and (min-width: $xl) {
+        width: 56px;
+      }
 
       .search-input-button-icon {
         width: 24px;

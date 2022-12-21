@@ -315,7 +315,7 @@ const Dashboard = () => {
           </div>
 
           <div className="bottom-container">
-            <div className="current-city-bottom-container">
+            <div className="city-bottom-container">
               <Today
                 currentCity={currentCity}
                 currentCityToday={currentCityToday}
